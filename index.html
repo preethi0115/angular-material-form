@@ -1,0 +1,121 @@
+	<html lang="en" >
+		<head>
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<!-- Angular Material style sheet -->
+			<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+			<link rel="stylesheet" href="css/main.css">
+		</head>
+	<body ng-app="mainApp" ng-cloak>
+	<div layout="row" layout="column">
+		<md-toolbar>
+			<div class="md-toolbar-tools">
+				<span flex='50'>COVA</span>
+				<span flex='10'> Dashboard</span>
+				<span flex='10'> Intiatives</span>
+				<span flex='10'> Tasks</span>
+				<span flex='10'> Audit</span>
+				<md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="item in getMatches(searchText)" md-item-text="item.display">
+					<span md-highlight-text="searchText">{{item.display}}</span>
+				</md-autocomplete>
+			</div>
+		</md-toolbar>
+	</div>
+	<div layout="row"  layout-padding ng-controller="MainCtrl">
+	<md-content  flex layout="column">
+	<div layout="row" layout-padding >
+		<div flex="30">
+			<md-select ng-model="lobType" >
+				<md-option ng-value="t.title" data-ng-repeat="t in lob">{{ t.title }}</md-option>
+			</md-select>
+		</div>
+		<div flex="30">
+			<md-select ng-model="priorityType" >
+			<md-option ng-value="t.title" data-ng-repeat="t in priority">{{ t.title }}</md-option>
+			</md-select>
+		</div>
+		<div flex="40" layout-padding>
+			<md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+		</div>
+	</div>
+	<div>
+		<p>Intiative Type: </p><br/>
+		<md-radio-group ng-model="data.group1" layout-align="left center" layout="row">
+		<md-radio-button value="PIP" class="md-primary" flex='8'>PIP</md-radio-button>
+		<md-radio-button value="HEDIS" flex='8'> HEDIS </md-radio-button>
+		<md-radio-button value="QIP" flex='8'>QIP</md-radio-button>
+		<md-radio-button value="Corrective Action Plan" flex='20'>Corrective Action Plan</md-radio-button>
+		<md-radio-button value="Performance Measures" flex='45'>Performance Measures</md-radio-button>
+		</md-radio-group>
+	</div>
+	<div layout="row" layout-padding>
+		<md-input-container flex="60">
+			<label>Title</label>
+			<input ng-model="user.title">
+		</md-input-container>
+		<md-checkbox aria-label="Mandatory" flex='20' layout-align="bottom">Mandatory</md-checkbox>
+	</div>
+	<div layout="row">
+		<div flex="30">
+			<md-select ng-model="catType" >
+			<md-option ng-value="t.title" data-ng-repeat="t in categoryType">{{ t.title }}</md-option>
+			</md-select>
+		</div>
+		<div flex="30">
+			<md-select ng-model="categryType" >
+			<md-option ng-value="t.title" data-ng-repeat="t in category">{{ t.title }}</md-option>
+			</md-select>
+		</div>
+	</div>
+	<div layout="row">
+		<div flex="30">
+		<label>Start Date</label><br/>
+			<md-datepicker ng-model="myDate" md-placeholder="Start Date"></md-datepicker>
+		</div>
+		<div flex="30">
+		<label>End date</label><br/>
+			<md-datepicker ng-model="myDate" md-placeholder="End date"></md-datepicker>
+		</div>
+	</div>
+	<div layout="row">
+		<div flex>
+			<md-select ng-model="workflowType" >
+				<md-option ng-value="t.title" data-ng-repeat="t in workflow">{{ t.title }}</md-option>
+			</md-select>
+		</div>
+	</div>
+		</md-content>
+	<md-sidenav layout="column" class="sidenav1" md-is-locked-open='true'>
+		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+		<br/><br/>
+		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. <br/>
+		<div layout="row">
+			<md-button class="md-raised" flex="50">Save</md-button>
+			<md-button class="md-raised" flex="50">Continue</md-button>
+		</div>
+	</md-sidenav>
+	</div>
+
+	<footer>
+		<div class="container">
+			<p>&copy;Thinkwise Technologies</p>
+		<ul>
+			<li><a href="#/">FAQ</a></li>
+			<li><a href="#/">Terms & Conditions</a></li>
+			<li><a href="#/">Privacy Policy</a></li>
+			<li><a href="#/">Contact Us</a></li>
+			<li><a href="#/">Site Map</a></li>
+		</ul>
+		</div>
+	</footer>
+	<!-- Angular Material requires Angular.js Libraries -->
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+
+	<!-- Angular Material Library -->
+	<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+
+	<script src="js/main.js"></script>
+	</body>
+	</html>

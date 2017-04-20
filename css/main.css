@@ -1,0 +1,26 @@
+.md-toolbar-tools,footer{
+	background-color:#000;
+	color:rgba(255,255,255,0.87);
+}
+footer .container{
+	overflow:hidden;
+	padding:10px;
+}
+footer p{
+	float:left;	
+}
+footer ul{
+	float:right;	
+}
+footer li{
+	list-style:none;
+	float:left;
+	color:rgba(255,255,255,0.87);
+	margin:0 20px;
+}
+footer li a{
+	list-style:none;
+	color:rgba(255,255,255,0.87);
+	display:block;
+	text-decoration:none;
+}
